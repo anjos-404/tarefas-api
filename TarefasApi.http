@@ -1,0 +1,29 @@
+### Exemplos de chamadas (abra no VS Code com a extensão REST Client, ou no Rider/Visual Studio)
+@base = http://localhost:5000/api/tarefas
+
+### Listar todas
+GET {{base}}
+
+### Listar só as pendentes
+GET {{base}}?concluida=false
+
+### Criar
+POST {{base}}
+Content-Type: application/json
+
+{ "titulo": "Estudar minimal APIs", "descricao": "Rotas, validação e CORS" }
+
+### Concluir
+PUT {{base}}/1
+Content-Type: application/json
+
+{ "titulo": "Estudar minimal APIs", "descricao": "Rotas, validação e CORS", "concluida": true }
+
+### Remover
+DELETE {{base}}/1
+
+### Erro de validação (400)
+POST {{base}}
+Content-Type: application/json
+
+{ "titulo": "" }
